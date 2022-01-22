@@ -213,12 +213,16 @@ def read_signed_16bit(bus, address, register):
         v -= 65536
     return v
 
-print(hex(read_unsigned_16bit(i2c_bus, INA260_ADDRESS, MFR_ID)))
+print("INA260 manufacturer ID: {0}".
+      format(hex(read_unsigned_16bit(i2c_bus, INA260_ADDRESS, MFR_ID))))
 # gets correct 0x5449
-print(hex(read_unsigned_16bit(i2c_bus, INA260_ADDRESS, DIE_ID)))
+print("INA260 die ID: {0}".
+      format(hex(read_unsigned_16bit(i2c_bus, INA260_ADDRESS, DIE_ID))))
 # gets correct 0x2270
-print(read_signed_16bit(i2c_bus, INA260_ADDRESS, BUS_VOLTAGE_REG))
-print(read_signed_16bit(i2c_bus, INA260_ADDRESS, CURRENT_REG))
+print("INA260 bus voltage: {0}".
+      format(read_signed_16bit(i2c_bus, INA260_ADDRESS, BUS_VOLTAGE_REG)))
+print("INA260 current: {0}".
+      format(read_signed_16bit(i2c_bus, INA260_ADDRESS, CURRENT_REG)))
 
 # test manually stepping servo pulse width up and down
 while (1):
