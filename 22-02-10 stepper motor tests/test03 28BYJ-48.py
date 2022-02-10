@@ -1,0 +1,40 @@
+import RPi.GPIO as GPIO
+import time
+
+# GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(GPIO.BCM)
+
+STEPPER_PIN_1 = 5
+STEPPER_PIN_2 = 6
+STEPPER_PIN_3 = 13
+STEPPER_PIN_4 = 26
+
+GPIO.setup(STEPPER_PIN_1, GPIO.OUT)
+GPIO.setup(STEPPER_PIN_2, GPIO.OUT)
+GPIO.setup(STEPPER_PIN_3, GPIO.OUT)
+GPIO.setup(STEPPER_PIN_4, GPIO.OUT)
+
+GPIO.output(STEPPER_PIN_1, GPIO.LOW)
+
+while 1:
+    GPIO.output(STEPPER_PIN_1, GPIO.HIGH)
+    GPIO.output(STEPPER_PIN_2, GPIO.LOW)
+    GPIO.output(STEPPER_PIN_3, GPIO.LOW)
+    GPIO.output(STEPPER_PIN_4, GPIO.LOW)
+    time.sleep(0.5)
+    GPIO.output(STEPPER_PIN_1, GPIO.LOW)
+    GPIO.output(STEPPER_PIN_2, GPIO.HIGH)
+    GPIO.output(STEPPER_PIN_3, GPIO.LOW)
+    GPIO.output(STEPPER_PIN_4, GPIO.LOW)
+    time.sleep(0.5)
+    GPIO.output(STEPPER_PIN_1, GPIO.LOW)
+    GPIO.output(STEPPER_PIN_2, GPIO.LOW)
+    GPIO.output(STEPPER_PIN_3, GPIO.HIGH)
+    GPIO.output(STEPPER_PIN_4, GPIO.LOW)
+    time.sleep(0.5)
+    GPIO.output(STEPPER_PIN_1, GPIO.LOW)
+    GPIO.output(STEPPER_PIN_2, GPIO.LOW)
+    GPIO.output(STEPPER_PIN_3, GPIO.LOW)
+    GPIO.output(STEPPER_PIN_4, GPIO.HIGH)
+    time.sleep(0.5)
+    
