@@ -9,13 +9,15 @@ stepper_pins = [5, 6, 13, 26]
 for p in stepper_pins:
     GPIO.setup(p, GPIO.OUT)
 
-while 1:
-    for i, p in enumerate(stepper_pins):
-        for a in range(4):
+for n in range(10):
+    time.sleep(0.5)
+    for a in range(4):
+        for i, p in enumerate(stepper_pins):
             if i == a:
                 GPIO.output(p, GPIO.HIGH)
             else:
                 GPIO.output(p, GPIO.LOW)
-#            GPIO.output(p, GPIO.(HIGH if i == a else LOW))
-        time.sleep(0.5)
+    
+        
+GPIO.cleanup()
     
