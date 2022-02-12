@@ -1,3 +1,6 @@
+# using Python on Raspberry Pi to rotate a
+# 28BYJ-48 stepper motor
+
 import RPi.GPIO as GPIO
 import time
 
